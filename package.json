@@ -26,6 +26,9 @@
     },
     "dependencies": {
         "react-bootstrap": "^1.0.0-beta.12",
+        "font-awesome": "^4.7.0",
+        "firebase": "^5.11.1",
+        "react-froala-wysiwyg": "2.9.1",
         "react-router-dom": "^5.0.1"
     }
 }
