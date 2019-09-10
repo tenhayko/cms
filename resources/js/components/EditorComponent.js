@@ -19,7 +19,21 @@ import FroalaEditor from 'react-froala-wysiwyg';
  * https://www.froala.com/wysiwyg-editor/docs/concepts/image/manager
  */
 const config = {
-    imageUploadURL: '/upload',
+    /* Image Manager */
+    // Set the load images request URL.
+    imageManagerLoadURL: '/image/manager',
+    // Set the load images request type.
+    imageManagerLoadMethod: "GET",
+    // Set page size.
+    imageManagerPageSize: 20,
+    // Set a scroll offset (value in pixels).
+    imageManagerScrollOffset: 10,
+    // Set the delete image request URL.
+    imageManagerDeleteURL: "image/manager/delete",
+    // Set the delete image request type.
+    imageManagerDeleteMethod: "DELETE",
+    /* End Image Manager*/
+    imageUploadURL: '/image/upload',
     requestHeaders:{
         'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').content
     },
@@ -31,14 +45,12 @@ const config = {
             return false
         },
         'froalaEditor.image.removed': (e, editor, $img) => {
-            // delete image
-            console.log($img.attr('src'));
             let data = {
-              image : $img.attr('src')
+              url : $img.attr('src'),
+              data : $img.data()
             }
-            axios.post('/delete-image', data).then(response => {
-              // console.log(response.data);
-            });
+            console.log(editor);
+            axios.post('/image/delete', data).then(response => {});
             return false
         }
     }
@@ -46,9 +58,7 @@ const config = {
 class EditorComponent extends React.Component {
   constructor () {
     super();
-
     this.handleModelChange = this.handleModelChange.bind(this);
-
     this.state = {
       model: 'Example text'
     };
@@ -58,7 +68,6 @@ class EditorComponent extends React.Component {
     this.setState({
       model: model
     });
-    // console.log(model);
   }
 
   render () {

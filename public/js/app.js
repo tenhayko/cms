@@ -77291,7 +77291,7 @@ module.exports = exports['default'];
 /*!***************************************************************!*\
   !*** ./node_modules/react-router-dom/esm/react-router-dom.js ***!
   \***************************************************************/
-/*! exports provided: BrowserRouter, HashRouter, Link, NavLink, MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext */
+/*! exports provided: MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext, BrowserRouter, HashRouter, Link, NavLink */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -84487,7 +84487,22 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
  */
 
 var config = {
-  imageUploadURL: '/upload',
+  /* Image Manager */
+  // Set the load images request URL.
+  imageManagerLoadURL: '/image/manager',
+  // Set the load images request type.
+  imageManagerLoadMethod: "GET",
+  // Set page size.
+  imageManagerPageSize: 20,
+  // Set a scroll offset (value in pixels).
+  imageManagerScrollOffset: 10,
+  // Set the delete image request URL.
+  imageManagerDeleteURL: "image/manager/delete",
+  // Set the delete image request type.
+  imageManagerDeleteMethod: "DELETE",
+
+  /* End Image Manager*/
+  imageUploadURL: '/image/upload',
   requestHeaders: {
     'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').content
   },
@@ -84499,13 +84514,12 @@ var config = {
       return false;
     },
     'froalaEditor.image.removed': function froalaEditorImageRemoved(e, editor, $img) {
-      // delete image
-      console.log($img.attr('src'));
       var data = {
-        image: $img.attr('src')
+        url: $img.attr('src'),
+        data: $img.data()
       };
-      axios__WEBPACK_IMPORTED_MODULE_1___default.a.post('/delete-image', data).then(function (response) {// console.log(response.data);
-      });
+      console.log(editor);
+      axios__WEBPACK_IMPORTED_MODULE_1___default.a.post('/image/delete', data).then(function (response) {});
       return false;
     }
   }
@@ -84534,7 +84548,7 @@ function (_React$Component) {
     value: function handleModelChange(model) {
       this.setState({
         model: model
-      }); // console.log(model);
+      });
     }
   }, {
     key: "render",
@@ -85072,8 +85086,8 @@ function (_Component) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! G:\xampp\htdocs\myProject\cms\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! G:\xampp\htdocs\myProject\cms\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\cms\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\cms\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

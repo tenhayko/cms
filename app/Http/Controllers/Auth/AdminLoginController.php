@@ -26,7 +26,6 @@ class AdminLoginController extends Controller
             'email'=>'required|email',
             'password'=>'required|min:6',
         ]);
-
         // Attempt to log the user in
         $user = Admin::where('email', $req->email)->where('status', 1)->first();
         if ($user) {
@@ -42,7 +41,7 @@ class AdminLoginController extends Controller
                             $user->google2fa_secret
                         );
                         Session::put('emailUser', $user->email);
-                        return view('auth.admin-login-qrcode',['QrUrl'=>$google2fa_url]);
+                        return view('auth.admin-login-qrcode',['QrUrl'=>$google2fa_url, 'email'=>$user->email]);
                     }else{
                         return redirect()->back()->withInput($req->only('email', 'remember'));
                     }
@@ -53,7 +52,7 @@ class AdminLoginController extends Controller
                         $user->google2fa_secret
                     );
                     Session::put('emailUser', $user->email);
-                    return view('auth.admin-login-qrcode',['QrUrl'=>$google2fa_url]);
+                    return view('auth.admin-login-qrcode',['QrUrl'=>$google2fa_url, 'email'=>$user->email]);
                 }
             }
             return redirect()->back()->withInput($req->only('email', 'remember'));
@@ -69,7 +68,7 @@ class AdminLoginController extends Controller
 
     public function postQrcode(Request $request)
     {
-        if (Session::get('emailUser') && $request->secret) {
+        if (Session::get('emailUser') && $request->secret && $request->email == Session::get('emailUser')) {
             $google2fa = new Google2FA();
             $secret = $request->input('secret');
             $userEmail = Session::get('emailUser');

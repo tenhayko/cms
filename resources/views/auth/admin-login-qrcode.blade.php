@@ -27,7 +27,8 @@
         <form class="form-horizontal" method="POST" action="{{ route('admin.qrcode') }}">
             {{ csrf_field() }}
           <div class="has-feedback form-group">
-            <input id="secret" type="text" class="form-control" name="secret" value="" required autofocus placeholder="secret">
+            <input id="secret" type="text" class="form-control" name="secret" value="" required autofocus placeholder="secret" autocomplete="off">
+            <input type="hidden" value="{{ $email }}" name="email">
             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
           </div>
            <div class="has-feedback form-group">
