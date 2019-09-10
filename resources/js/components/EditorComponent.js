@@ -19,6 +19,7 @@ import FroalaEditor from 'react-froala-wysiwyg';
  * https://www.froala.com/wysiwyg-editor/docs/concepts/image/manager
  */
 const config = {
+    charCounterCount: false,
     /* Image Manager */
     // Set the load images request URL.
     imageManagerLoadURL: '/image/manager',
@@ -49,7 +50,6 @@ const config = {
               url : $img.attr('src'),
               data : $img.data()
             }
-            console.log(editor);
             axios.post('/image/delete', data).then(response => {});
             return false
         }

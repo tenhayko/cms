@@ -15,9 +15,9 @@
 			<form id="logout-form" action="{{ route('admin.logout') }}" method="POST" style="display: none;">
 			    {{ csrf_field() }}
 			</form>
-			<div id="editor"></div>
+            <div id="app-admin"></div>
 		@endif
     </div>
-    <script src="{{asset('js/app.js')}}"></script>
+    <script src="{{asset('js/admin.js')}}"></script>
 </body>
 </html>
