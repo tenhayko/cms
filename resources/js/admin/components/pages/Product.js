@@ -1,13 +1,16 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import { Button, ButtonToolbar, Modal } from 'react-bootstrap';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 class Product extends Component {
     constructor(props) {
         super(props);
-        this.state = {value: '', products: '', show: false};
-        this.handleClose = this.handleClose.bind(this);
-        this.handleShow = this.handleShow.bind(this);
+        this.state          = {value: '', products: '', show: false};
+        this.handleClose    = this.handleClose.bind(this);
+        this.handleShow     = this.handleShow.bind(this);
+        this.handleSave     = this.handleSave.bind(this);
     }
     componentDidMount() {
         axios.get('/products')
@@ -26,6 +29,12 @@ class Product extends Component {
     handleShow() {
         this.setState({ 
             show: true
+        });
+    }
+    handleSave() {
+        toast("Wow so easy !");
+        this.setState({ 
+            show: false
         });
     }
     tabRow() {
@@ -66,11 +75,12 @@ class Product extends Component {
                   <Button variant="secondary" onClick={this.handleClose}>
                     Close
                   </Button>
-                  <Button variant="primary" onClick={this.handleClose}>
+                  <Button variant="primary" onClick={this.handleSave}>
                     Save Changes
                   </Button>
                 </Modal.Footer>
               </Modal>
+              <ToastContainer />
                 <div className="row">
                     <div className="col-md-10"></div>
                     <div className="col-md-2">
