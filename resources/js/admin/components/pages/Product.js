@@ -5,7 +5,6 @@ import { ToastContainer, toast } from 'react-toastify';
 import validateInput from './../form/Validate';
 import 'react-toastify/dist/ReactToastify.css';
 
-validateInput();
 class Product extends Component {
     constructor(props) {
         super(props);
@@ -34,11 +33,8 @@ class Product extends Component {
         });
     }
     handleSave() {
+        validateInput();
         toast("Default Notification !");
-        toast.success("Success Notification !");
-        toast.error("Error Notification !");
-        toast.warn("Warning Notification !");
-        toast.info("Info Notification !");
         this.setState({ 
             show: false
         });

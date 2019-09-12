@@ -87241,7 +87241,6 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
-Object(_form_Validate__WEBPACK_IMPORTED_MODULE_4__["default"])();
 
 var Product =
 /*#__PURE__*/
@@ -87295,11 +87294,8 @@ function (_Component) {
   }, {
     key: "handleSave",
     value: function handleSave() {
+      Object(_form_Validate__WEBPACK_IMPORTED_MODULE_4__["default"])();
       Object(react_toastify__WEBPACK_IMPORTED_MODULE_3__["toast"])("Default Notification !");
-      react_toastify__WEBPACK_IMPORTED_MODULE_3__["toast"].success("Success Notification !");
-      react_toastify__WEBPACK_IMPORTED_MODULE_3__["toast"].error("Error Notification !");
-      react_toastify__WEBPACK_IMPORTED_MODULE_3__["toast"].warn("Warning Notification !");
-      react_toastify__WEBPACK_IMPORTED_MODULE_3__["toast"].info("Info Notification !");
       this.setState({
         show: false
       });
