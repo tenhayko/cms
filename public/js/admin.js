@@ -87070,6 +87070,23 @@ function (_Component) {
 
 /***/ }),
 
+/***/ "./resources/js/admin/components/form/Validate.js":
+/*!********************************************************!*\
+  !*** ./resources/js/admin/components/form/Validate.js ***!
+  \********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var validateInput = function validateInput(checkingText) {
+  console.log('validate');
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (validateInput);
+
+/***/ }),
+
 /***/ "./resources/js/admin/components/pages/About.js":
 /*!******************************************************!*\
   !*** ./resources/js/admin/components/pages/About.js ***!
@@ -87197,8 +87214,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/es/index.js");
 /* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-toastify */ "./node_modules/react-toastify/esm/react-toastify.js");
-/* harmony import */ var react_toastify_dist_ReactToastify_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-toastify/dist/ReactToastify.css */ "./node_modules/react-toastify/dist/ReactToastify.css");
-/* harmony import */ var react_toastify_dist_ReactToastify_css__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_toastify_dist_ReactToastify_css__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _form_Validate__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../form/Validate */ "./resources/js/admin/components/form/Validate.js");
+/* harmony import */ var react_toastify_dist_ReactToastify_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-toastify/dist/ReactToastify.css */ "./node_modules/react-toastify/dist/ReactToastify.css");
+/* harmony import */ var react_toastify_dist_ReactToastify_css__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react_toastify_dist_ReactToastify_css__WEBPACK_IMPORTED_MODULE_5__);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -87222,6 +87240,8 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
+
+Object(_form_Validate__WEBPACK_IMPORTED_MODULE_4__["default"])();
 
 var Product =
 /*#__PURE__*/
@@ -87275,7 +87295,11 @@ function (_Component) {
   }, {
     key: "handleSave",
     value: function handleSave() {
-      Object(react_toastify__WEBPACK_IMPORTED_MODULE_3__["toast"])("Wow so easy !");
+      Object(react_toastify__WEBPACK_IMPORTED_MODULE_3__["toast"])("Default Notification !");
+      react_toastify__WEBPACK_IMPORTED_MODULE_3__["toast"].success("Success Notification !");
+      react_toastify__WEBPACK_IMPORTED_MODULE_3__["toast"].error("Error Notification !");
+      react_toastify__WEBPACK_IMPORTED_MODULE_3__["toast"].warn("Warning Notification !");
+      react_toastify__WEBPACK_IMPORTED_MODULE_3__["toast"].info("Info Notification !");
       this.setState({
         show: false
       });
