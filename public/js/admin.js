@@ -87080,7 +87080,20 @@ function (_Component) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 var validateInput = function validateInput(checkingText) {
-  console.log('validate');
+  var regexp = /^\d{10,11}$/;
+  var checkingResult = regexp.exec(checkingText);
+
+  if (checkingResult !== null) {
+    return {
+      isInputValid: true,
+      errorMessage: ''
+    };
+  } else {
+    return {
+      isInputValid: false,
+      errorMessage: 'Số điện thoại phải có 10 - 11 chữ số.'
+    };
+  }
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (validateInput);
@@ -87219,6 +87232,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_toastify_dist_ReactToastify_css__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react_toastify_dist_ReactToastify_css__WEBPACK_IMPORTED_MODULE_5__);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -87256,7 +87275,17 @@ function (_Component) {
     _this.state = {
       value: '',
       products: '',
-      show: false
+      show: false,
+      phonenumber: {
+        value: '',
+        isInputValid: true,
+        errorMessage: ''
+      },
+      fullname: {
+        value: '',
+        isInputValid: true,
+        errorMessage: ''
+      }
     };
     _this.handleClose = _this.handleClose.bind(_assertThisInitialized(_this));
     _this.handleShow = _this.handleShow.bind(_assertThisInitialized(_this));
@@ -87292,9 +87321,40 @@ function (_Component) {
       });
     }
   }, {
+    key: "handleInput",
+    value: function handleInput(event) {
+      var _event$target = event.target,
+          name = _event$target.name,
+          value = _event$target.value;
+
+      var newState = _objectSpread({}, this.state[name]);
+      /* dummy object */
+
+
+      newState.value = value;
+      this.setState(_defineProperty({}, name, newState));
+    }
+  }, {
+    key: "handleInputValidation",
+    value: function handleInputValidation(event) {
+      var name = event.target.name;
+
+      var _validateInput = Object(_form_Validate__WEBPACK_IMPORTED_MODULE_4__["default"])(name, this.state[name].value),
+          isInputValid = _validateInput.isInputValid,
+          errorMessage = _validateInput.errorMessage;
+
+      var newState = _objectSpread({}, this.state[name]);
+      /* dummy object */
+
+
+      newState.isInputValid = isInputValid;
+      newState.errorMessage = errorMessage;
+      this.setState(_defineProperty({}, name, newState));
+    }
+  }, {
     key: "handleSave",
     value: function handleSave() {
-      Object(_form_Validate__WEBPACK_IMPORTED_MODULE_4__["default"])();
+      Object(_form_Validate__WEBPACK_IMPORTED_MODULE_4__["default"])('123124');
       Object(react_toastify__WEBPACK_IMPORTED_MODULE_3__["toast"])("Default Notification !");
       this.setState({
         show: false

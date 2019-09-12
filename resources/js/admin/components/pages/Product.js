@@ -8,7 +8,21 @@ import 'react-toastify/dist/ReactToastify.css';
 class Product extends Component {
     constructor(props) {
         super(props);
-        this.state          = {value: '', products: '', show: false};
+        this.state          =   {
+                                    value: '', 
+                                    products: '', 
+                                    show: false,
+                                    phonenumber: {
+                                        value: '',
+                                        isInputValid: true, 
+                                        errorMessage: ''
+                                    },
+                                    fullname: {
+                                        value : '',
+                                        isInputValid: true, 
+                                        errorMessage: ''
+                                    }
+                                };
         this.handleClose    = this.handleClose.bind(this);
         this.handleShow     = this.handleShow.bind(this);
         this.handleSave     = this.handleSave.bind(this);
@@ -32,8 +46,23 @@ class Product extends Component {
             show: true
         });
     }
+    handleInput(event) {
+        const { name, value } = event.target;
+        const newState = {...this.state[name]}; /* dummy object */
+        newState.value = value;
+        this.setState({[name]: newState});
+    }
+
+    handleInputValidation(event) {
+        const { name } = event.target;
+        const { isInputValid, errorMessage } = validateInput(name, this.state[name].value);
+        const newState = {...this.state[name]}; /* dummy object */
+        newState.isInputValid = isInputValid;
+        newState.errorMessage = errorMessage;
+        this.setState({[name]: newState})
+    }
     handleSave() {
-        validateInput();
+        validateInput('123124');
         toast("Default Notification !");
         this.setState({ 
             show: false
