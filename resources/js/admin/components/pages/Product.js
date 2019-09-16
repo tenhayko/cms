@@ -1,31 +1,35 @@
 import React, {Component} from 'react';
+import ReactDOM from 'react-dom';
 import axios from 'axios';
 import { Button, ButtonToolbar, Modal } from 'react-bootstrap';
 import { ToastContainer, toast } from 'react-toastify';
 import validateInput from './../form/Validate';
+import FormError from './../form/FormError';
 import 'react-toastify/dist/ReactToastify.css';
 
 class Product extends Component {
     constructor(props) {
         super(props);
-        this.state          =   {
-                                    value: '', 
-                                    products: '', 
-                                    show: false,
-                                    phonenumber: {
-                                        value: '',
-                                        isInputValid: true, 
-                                        errorMessage: ''
-                                    },
-                                    fullname: {
-                                        value : '',
-                                        isInputValid: true, 
-                                        errorMessage: ''
-                                    }
-                                };
-        this.handleClose    = this.handleClose.bind(this);
-        this.handleShow     = this.handleShow.bind(this);
-        this.handleSave     = this.handleSave.bind(this);
+        this.state =   {
+                        value: '', 
+                        products: '', 
+                        show: false,
+                        phonenumber: {
+                            value: '',
+                            isInputValid: true, 
+                            errorMessage: ''
+                        },
+                        fullname: {
+                            value : '',
+                            isInputValid: true, 
+                            errorMessage: ''
+                        }
+                    };
+        this.handleClose = this.handleClose.bind(this);
+        this.handleShow = this.handleShow.bind(this);
+        this.handleSave = this.handleSave.bind(this);
+        this.handleInput = this.handleInput.bind(this);
+        this.handleInputValidation = this.handleInputValidation.bind(this);
     }
     componentDidMount() {
         axios.get('/products')
@@ -101,7 +105,24 @@ class Product extends Component {
                 <Modal.Header closeButton>
                   <Modal.Title>Modal heading</Modal.Title>
                 </Modal.Header>
-                <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+                <Modal.Body>
+                    <input
+                        name="fullname"
+                        onChange={this.handleInput}
+                        onBlur={this.handleInputValidation} />
+                    <FormError
+                        type="fullname"
+                        isHidden={this.state.fullname.isInputValid} 
+                        errorMessage={this.state.fullname.errorMessage} />
+                    <input
+                        name="phonenumber"
+                        onChange={this.handleInput}
+                        onBlur={this.handleInputValidation} />
+                    <FormError
+                        type="phonenumber"
+                        isHidden={this.state.phonenumber.isInputValid} 
+                        errorMessage={this.state.phonenumber.errorMessage} />
+                </Modal.Body>
                 <Modal.Footer>
                   <Button variant="secondary" onClick={this.handleClose}>
                     Close

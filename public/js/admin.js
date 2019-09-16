@@ -87070,6 +87070,33 @@ function (_Component) {
 
 /***/ }),
 
+/***/ "./resources/js/admin/components/form/FormError.js":
+/*!*********************************************************!*\
+  !*** ./resources/js/admin/components/form/FormError.js ***!
+  \*********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var FormError = function FormError(props) {
+  if (props.isHidden) {
+    return null;
+  }
+
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "form-warning"
+  }, props.errorMessage);
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (FormError);
+
+/***/ }),
+
 /***/ "./resources/js/admin/components/form/Validate.js":
 /*!********************************************************!*\
   !*** ./resources/js/admin/components/form/Validate.js ***!
@@ -87079,19 +87106,28 @@ function (_Component) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-var validateInput = function validateInput(checkingText) {
-  var regexp = /^\d{10,11}$/;
-  var checkingResult = regexp.exec(checkingText);
+var validateInput = function validateInput(type, checkingText) {
+  if (type === "phonenumber") {
+    var regexp = /^\d{10,11}$/;
+    var checkingResult = regexp.exec(checkingText);
 
-  if (checkingResult !== null) {
+    if (checkingResult !== null) {
+      return {
+        isInputValid: true,
+        errorMessage: ''
+      };
+    } else {
+      return {
+        isInputValid: false,
+        errorMessage: 'Số điện thoại phải có 10 - 11 chữ số.'
+      };
+    }
+  }
+
+  if (type === "fullname") {
     return {
       isInputValid: true,
       errorMessage: ''
-    };
-  } else {
-    return {
-      isInputValid: false,
-      errorMessage: 'Số điện thoại phải có 10 - 11 chữ số.'
     };
   }
 };
@@ -87223,13 +87259,16 @@ function (_Component) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/es/index.js");
-/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-toastify */ "./node_modules/react-toastify/esm/react-toastify.js");
-/* harmony import */ var _form_Validate__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../form/Validate */ "./resources/js/admin/components/form/Validate.js");
-/* harmony import */ var react_toastify_dist_ReactToastify_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-toastify/dist/ReactToastify.css */ "./node_modules/react-toastify/dist/ReactToastify.css");
-/* harmony import */ var react_toastify_dist_ReactToastify_css__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react_toastify_dist_ReactToastify_css__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/es/index.js");
+/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-toastify */ "./node_modules/react-toastify/esm/react-toastify.js");
+/* harmony import */ var _form_Validate__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./../form/Validate */ "./resources/js/admin/components/form/Validate.js");
+/* harmony import */ var _form_FormError__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./../form/FormError */ "./resources/js/admin/components/form/FormError.js");
+/* harmony import */ var react_toastify_dist_ReactToastify_css__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-toastify/dist/ReactToastify.css */ "./node_modules/react-toastify/dist/ReactToastify.css");
+/* harmony import */ var react_toastify_dist_ReactToastify_css__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react_toastify_dist_ReactToastify_css__WEBPACK_IMPORTED_MODULE_7__);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
@@ -87253,6 +87292,8 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
 
 
 
@@ -87290,6 +87331,8 @@ function (_Component) {
     _this.handleClose = _this.handleClose.bind(_assertThisInitialized(_this));
     _this.handleShow = _this.handleShow.bind(_assertThisInitialized(_this));
     _this.handleSave = _this.handleSave.bind(_assertThisInitialized(_this));
+    _this.handleInput = _this.handleInput.bind(_assertThisInitialized(_this));
+    _this.handleInputValidation = _this.handleInputValidation.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -87298,7 +87341,7 @@ function (_Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
-      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('/products').then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_2___default.a.get('/products').then(function (response) {
         _this2.setState({
           products: response.data
         });
@@ -87339,7 +87382,7 @@ function (_Component) {
     value: function handleInputValidation(event) {
       var name = event.target.name;
 
-      var _validateInput = Object(_form_Validate__WEBPACK_IMPORTED_MODULE_4__["default"])(name, this.state[name].value),
+      var _validateInput = Object(_form_Validate__WEBPACK_IMPORTED_MODULE_5__["default"])(name, this.state[name].value),
           isInputValid = _validateInput.isInputValid,
           errorMessage = _validateInput.errorMessage;
 
@@ -87354,8 +87397,8 @@ function (_Component) {
   }, {
     key: "handleSave",
     value: function handleSave() {
-      Object(_form_Validate__WEBPACK_IMPORTED_MODULE_4__["default"])('123124');
-      Object(react_toastify__WEBPACK_IMPORTED_MODULE_3__["toast"])("Default Notification !");
+      Object(_form_Validate__WEBPACK_IMPORTED_MODULE_5__["default"])('123124');
+      Object(react_toastify__WEBPACK_IMPORTED_MODULE_4__["toast"])("Default Notification !");
       this.setState({
         show: false
       });
@@ -87378,24 +87421,40 @@ function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Products List - Demo"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Modal"], {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Products List - Demo"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__["Modal"], {
         show: this.state.show,
         onHide: this.handleClose
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Modal"].Header, {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__["Modal"].Header, {
         closeButton: true
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Modal"].Title, null, "Modal heading")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Modal"].Body, null, "Woohoo, you're reading this text in a modal!"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Modal"].Footer, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Button"], {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__["Modal"].Title, null, "Modal heading")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__["Modal"].Body, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        name: "fullname",
+        onChange: this.handleInput,
+        onBlur: this.handleInputValidation
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_form_FormError__WEBPACK_IMPORTED_MODULE_6__["default"], {
+        type: "fullname",
+        isHidden: this.state.fullname.isInputValid,
+        errorMessage: this.state.fullname.errorMessage
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        name: "phonenumber",
+        onChange: this.handleInput,
+        onBlur: this.handleInputValidation
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_form_FormError__WEBPACK_IMPORTED_MODULE_6__["default"], {
+        type: "phonenumber",
+        isHidden: this.state.phonenumber.isInputValid,
+        errorMessage: this.state.phonenumber.errorMessage
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__["Modal"].Footer, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__["Button"], {
         variant: "secondary",
         onClick: this.handleClose
-      }, "Close"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Button"], {
+      }, "Close"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__["Button"], {
         variant: "primary",
         onClick: this.handleSave
-      }, "Save Changes"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_toastify__WEBPACK_IMPORTED_MODULE_3__["ToastContainer"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "Save Changes"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_toastify__WEBPACK_IMPORTED_MODULE_4__["ToastContainer"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "row"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-md-10"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-md-2"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Button"], {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__["Button"], {
         className: "btn btn-success btn-sm",
         variant: "primary",
         onClick: this.handleShow
@@ -87682,7 +87741,7 @@ if (document.getElementById('editor')) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\cms\resources\js\admin.js */"./resources/js/admin.js");
+module.exports = __webpack_require__(/*! G:\xampp\htdocs\myProject\cms\resources\js\admin.js */"./resources/js/admin.js");
 
 
 /***/ })
