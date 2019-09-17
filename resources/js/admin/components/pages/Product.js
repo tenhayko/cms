@@ -1,30 +1,28 @@
-import React, {Component} from 'react';
-import ReactDOM from 'react-dom';
 import axios from 'axios';
-import { Button, ButtonToolbar, Modal } from 'react-bootstrap';
-import { ToastContainer, toast } from 'react-toastify';
-import validateInput from './../form/Validate';
+import ReactDOM from 'react-dom';
+import React, {Component} from 'react';
 import FormError from './../form/FormError';
+import validateInput from './../form/Validate';
 import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from 'react-toastify';
+import { Button, ButtonToolbar, Modal } from 'react-bootstrap';
 
 class Product extends Component {
     constructor(props) {
         super(props);
-        this.state =   {
-                        value: '', 
-                        products: '', 
-                        show: false,
-                        phonenumber: {
-                            value: '',
-                            isInputValid: true, 
-                            errorMessage: ''
-                        },
-                        fullname: {
-                            value : '',
-                            isInputValid: true, 
-                            errorMessage: ''
-                        }
-                    };
+        this.state =    {
+                            value: '', 
+                            products: '', 
+                            show: false,
+                            phonenumber: {
+                                value: '',
+                                errorMessage: ''
+                            },
+                            fullname: {
+                                value : '',
+                                errorMessage: ''
+                            }
+                        };
         this.handleClose = this.handleClose.bind(this);
         this.handleShow = this.handleShow.bind(this);
         this.handleSave = this.handleSave.bind(this);
@@ -59,9 +57,8 @@ class Product extends Component {
 
     handleInputValidation(event) {
         const { name } = event.target;
-        const { isInputValid, errorMessage } = validateInput(name, this.state[name].value);
+        const {errorMessage } = validateInput(name, this.state[name].value);
         const newState = {...this.state[name]}; /* dummy object */
-        newState.isInputValid = isInputValid;
         newState.errorMessage = errorMessage;
         this.setState({[name]: newState})
     }
@@ -112,7 +109,6 @@ class Product extends Component {
                         onBlur={this.handleInputValidation} />
                     <FormError
                         type="fullname"
-                        isHidden={this.state.fullname.isInputValid} 
                         errorMessage={this.state.fullname.errorMessage} />
                     <input
                         name="phonenumber"
@@ -120,7 +116,6 @@ class Product extends Component {
                         onBlur={this.handleInputValidation} />
                     <FormError
                         type="phonenumber"
-                        isHidden={this.state.phonenumber.isInputValid} 
                         errorMessage={this.state.phonenumber.errorMessage} />
                 </Modal.Body>
                 <Modal.Footer>
