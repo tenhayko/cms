@@ -27,6 +27,9 @@ export default class AppAdmin extends Component {
                                         <li className="nav-item">
                                             <Link className="nav-link js-scroll-trigger" to={'/topic'}>Topic</Link>
                                         </li>
+                                        <li className="nav-item">
+                                            <Link className="nav-link js-scroll-trigger" to={'/file-manager'}>FileManager</Link>
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
