@@ -6,7 +6,8 @@ class FileManager extends Component {
 	constructor(props) {
       super(props);
       this.state ={
-        image: ''
+        image: '',
+        selectedFile: null
       }
       this.onFormSubmit = this.onFormSubmit.bind(this)
       this.onChange = this.onChange.bind(this)
@@ -14,12 +15,15 @@ class FileManager extends Component {
     }
     onFormSubmit(e){
       e.preventDefault() 
-      this.fileUpload(this.state.image);
+      this.fileUpload();
     }
     onChange(e) {
       let files = e.target.files || e.dataTransfer.files;
       if (!files.length)
             return;
+      this.setState({
+        selectedFile: files[0]
+      })
       this.createImage(files[0]);
     }
     createImage(file) {
@@ -31,11 +35,19 @@ class FileManager extends Component {
       };
       reader.readAsDataURL(file);
     }
-    fileUpload(image){
-      const url = 'http://localhost:8000/api/fileupload';
-      const formData = {file: this.state.image}
-      return  post(url, formData)
-              .then(response => console.log(response))
+    fileUpload(){
+      const url = '/image/fileupload';
+      console.log(url);
+      const data = new FormData()
+      data.append('file', this.state.selectedFile)
+      data.append('image', this.state.image)
+      axios.post(url, data)
+            .then(response => {
+                console.log(response)
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
     }
     render() {
         return (<div>

@@ -87253,7 +87253,8 @@ function (_Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(FileManager).call(this, props));
     _this.state = {
-      image: ''
+      image: '',
+      selectedFile: null
     };
     _this.onFormSubmit = _this.onFormSubmit.bind(_assertThisInitialized(_this));
     _this.onChange = _this.onChange.bind(_assertThisInitialized(_this));
@@ -87265,13 +87266,16 @@ function (_Component) {
     key: "onFormSubmit",
     value: function onFormSubmit(e) {
       e.preventDefault();
-      this.fileUpload(this.state.image);
+      this.fileUpload();
     }
   }, {
     key: "onChange",
     value: function onChange(e) {
       var files = e.target.files || e.dataTransfer.files;
       if (!files.length) return;
+      this.setState({
+        selectedFile: files[0]
+      });
       this.createImage(files[0]);
     }
   }, {
@@ -87291,13 +87295,16 @@ function (_Component) {
     }
   }, {
     key: "fileUpload",
-    value: function fileUpload(image) {
-      var url = 'http://localhost:8000/api/fileupload';
-      var formData = {
-        file: this.state.image
-      };
-      return Object(axios__WEBPACK_IMPORTED_MODULE_1__["post"])(url, formData).then(function (response) {
-        return console.log(response);
+    value: function fileUpload() {
+      var url = '/image/fileupload';
+      console.log(url);
+      var data = new FormData();
+      data.append('file', this.state.selectedFile);
+      data.append('image', this.state.image);
+      axios__WEBPACK_IMPORTED_MODULE_1___default.a.post(url, data).then(function (response) {
+        console.log(response);
+      })["catch"](function (error) {
+        console.log(error);
       });
     }
   }, {

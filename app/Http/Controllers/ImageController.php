@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Image;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -33,6 +34,60 @@ class ImageController extends Controller
 		echo '<pre>';
 		print_r($request->all());
 		   die;
+	}
+
+	public function fileupload(Request $request)
+	{
+		if($request->hasFile('file')) {
+	        //get filename with extension
+	        $filenamewithextension = $request->file('file')->getClientOriginalName();
+	  
+	        //get filename without extension
+	        $filename = pathinfo($filenamewithextension, PATHINFO_FILENAME);
+	  
+	        //get file extension
+	        $extension = $request->file('file')->getClientOriginalExtension();
+	  
+	        //filename to store
+	        $filenametostore = $filename.'_'.time().'.'.$extension;
+	 
+	        //small thumbnail name
+	        $smallthumbnail = $filename.'_small_'.time().'.'.$extension;
+	 
+	        //medium thumbnail name
+	        $mediumthumbnail = $filename.'_medium_'.time().'.'.$extension;
+	 
+	        //large thumbnail name
+	        $largethumbnail = $filename.'_large_'.time().'.'.$extension;
+	 
+	        //Upload File
+	        $request->file('file')->storeAs('public/profile_images', $filenametostore);
+	        $request->file('file')->storeAs('public/profile_images/thumbnail', $smallthumbnail);
+	        $request->file('file')->storeAs('public/profile_images/thumbnail', $mediumthumbnail);
+	        $request->file('file')->storeAs('public/profile_images/thumbnail', $largethumbnail);
+	  
+	        //create small thumbnail
+	        $smallthumbnailpath = public_path('storage/profile_images/thumbnail/'.$smallthumbnail);
+	        $this->createThumbnail($smallthumbnailpath, 150, 93);
+	 
+	        //create medium thumbnail
+	        $mediumthumbnailpath = public_path('storage/profile_images/thumbnail/'.$mediumthumbnail);
+	        $this->createThumbnail($mediumthumbnailpath, 300, 185);
+	 
+	        //create large thumbnail
+	        $largethumbnailpath = public_path('storage/profile_images/thumbnail/'.$largethumbnail);
+	        $this->createThumbnail($largethumbnailpath, 550, 340);
+	  
+	        return response()->json(['smallthumbnailpath'=>$smallthumbnailpath,'status' => 200], 200);
+	    }
+	}
+
+	public function createThumbnail($path, $width, $height)
+	{
+	    $img = Image::make($path)->resize($width, $height, function ($constraint) {
+	        $constraint->aspectRatio();
+	    });
+	    $img->save($path);
 	}
 
     public function upload(Request $request)

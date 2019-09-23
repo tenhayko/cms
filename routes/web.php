@@ -32,5 +32,6 @@ Route::prefix('image')->group(function(){
 	Route::delete('/manager/delete', 'ImageController@managerDelete')->name('image.manager.delete');
 	Route::post('/upload', 'ImageController@upload')->name('image.upload');
 	Route::post('/delete', 'ImageController@delete')->name('image.delete');
+    Route::post('/fileupload', 'ImageController@fileupload')->name('image.fileupload');
 });
 // https://artisansweb.net/create-thumbnail-in-laravel-using-intervention-image-library/
