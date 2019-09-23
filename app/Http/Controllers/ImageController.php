@@ -62,7 +62,7 @@ class ImageController extends Controller
 	 
 	        //Upload File
 	        $request->file('file')->storeAs('public/profile_images', $filenametostore);
-	        $request->file('file')->storeAs('public/profile_images/thumbnail', $smallthumbnail);
+	        $path = $request->file('file')->storeAs('public/profile_images/thumbnail', $smallthumbnail);
 	        $request->file('file')->storeAs('public/profile_images/thumbnail', $mediumthumbnail);
 	        $request->file('file')->storeAs('public/profile_images/thumbnail', $largethumbnail);
 	  
@@ -78,7 +78,7 @@ class ImageController extends Controller
 	        $largethumbnailpath = public_path('storage/profile_images/thumbnail/'.$largethumbnail);
 	        $this->createThumbnail($largethumbnailpath, 550, 340);
 	  
-	        return response()->json(['smallthumbnailpath'=>$smallthumbnailpath,'status' => 200], 200);
+	        return response()->json(['smallthumbnailpath'=>Storage::url($path),'status' => 200], 200);
 	    }
 	}
 
