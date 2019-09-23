@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import axios, { post } from 'axios';
-import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from 'react-toastify';
 
 class FileManager extends Component {
 	constructor(props) {
@@ -38,12 +39,32 @@ class FileManager extends Component {
     fileUpload(){
       const url = '/image/fileupload';
       console.log(url);
-      const data = new FormData()
+      const data = new FormData();
+      let toastId = null;
       data.append('file', this.state.selectedFile)
       data.append('image', this.state.image)
-      axios.post(url, data)
+      axios.request({
+              method: "post", 
+              url: url, 
+              data: data,
+              onUploadProgress: p => {
+                const progress = p.loaded / p.total;
+                // check if we already displayed a toast
+                if(toastId === null){
+                  // toastId = toast('Upload in Progress', {
+                  //   progress: progress
+                  // });
+                } else {
+                  // toast.update(toastId, {
+                  //   progress: progress
+                  // })
+                }
+              }
+            })
             .then(response => {
-                console.log(response)
+              // toast.done(toastId);
+              toast("Default Notification !");
+              console.log(response);
             })
             .catch(function (error) {
                 console.log(error);
@@ -51,6 +72,7 @@ class FileManager extends Component {
     }
     render() {
         return (<div>
+            <ToastContainer />
             <h1>Welcome to FileManager!</h1>
             <form onSubmit={this.onFormSubmit}>
 		        <h1>React js Laravel File Upload Tutorial</h1>
