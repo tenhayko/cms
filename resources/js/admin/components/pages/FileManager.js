@@ -73,10 +73,10 @@ class FileManager extends Component {
     render() {
         return (<div>
             <ToastContainer />
-            <h1>Welcome to FileManager!</h1>
             <form onSubmit={this.onFormSubmit}>
-		        <h1>React js Laravel File Upload Tutorial</h1>
-		        <input type="file"  onChange={this.onChange} />
+            <label htmlFor="imageUpload">Brow
+		          <input style={{'display':'none'}} id="imageUpload" type="file"  onChange={this.onChange} />
+            </label>
 		        <button type="submit">Upload</button>
 		    </form>
         </div>)
