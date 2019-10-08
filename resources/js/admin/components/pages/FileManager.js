@@ -83,14 +83,45 @@ class FileManager extends Component {
 							<button type="submit">Upload</button>
 						</form>
 						<Container>
-						  <Row>
-						    <Col xs={6} md={4}>
+						  <Row className="mb-md-3">
+						    <Col className="text-center" xs={6} md={3}>
 						      <Image src="/storage/profile_images/thumbnail/503422289518819916825328410311436114329600n-1551159734309126081543_medium_1569838511.jpg" rounded />
 						    </Col>
-						    <Col xs={6} md={4}>
+						    <Col className="text-center" xs={6} md={3}>
 						      <Image src="/storage/profile_images/thumbnail/503422289518819916825328410311436114329600n-1551159734309126081543_medium_1569838511.jpg" rounded />
 						    </Col>
-						    <Col xs={6} md={4}>
+						    <Col className="text-center" xs={6} md={3}>
+						      <Image src="/storage/profile_images/thumbnail/503422289518819916825328410311436114329600n-1551159734309126081543_medium_1569838511.jpg" rounded />
+						    </Col>
+						    <Col className="text-center" xs={6} md={3}>
+						      <Image src="/storage/profile_images/thumbnail/503422289518819916825328410311436114329600n-1551159734309126081543_medium_1569838511.jpg" rounded />
+						    </Col>
+						  </Row>
+						  <Row className="mb-md-3">
+						    <Col className="text-center" xs={6} md={3}>
+						      <Image src="/storage/profile_images/thumbnail/503422289518819916825328410311436114329600n-1551159734309126081543_medium_1569838511.jpg" rounded />
+						    </Col>
+						    <Col className="text-center" xs={6} md={3}>
+						      <Image src="/storage/profile_images/thumbnail/503422289518819916825328410311436114329600n-1551159734309126081543_medium_1569838511.jpg" rounded />
+						    </Col>
+						    <Col className="text-center" xs={6} md={3}>
+						      <Image src="/storage/profile_images/thumbnail/503422289518819916825328410311436114329600n-1551159734309126081543_medium_1569838511.jpg" rounded />
+						    </Col>
+						    <Col className="text-center" xs={6} md={3}>
+						      <Image src="/storage/profile_images/thumbnail/503422289518819916825328410311436114329600n-1551159734309126081543_medium_1569838511.jpg" rounded />
+						    </Col>
+						  </Row>
+						  <Row className="mb-md-3">
+						    <Col className="text-center" xs={6} md={3}>
+						      <Image src="/storage/profile_images/thumbnail/503422289518819916825328410311436114329600n-1551159734309126081543_medium_1569838511.jpg" rounded />
+						    </Col>
+						    <Col className="text-center" xs={6} md={3}>
+						      <Image src="/storage/profile_images/thumbnail/503422289518819916825328410311436114329600n-1551159734309126081543_medium_1569838511.jpg" rounded />
+						    </Col>
+						    <Col className="text-center" xs={6} md={3}>
+						      <Image src="/storage/profile_images/thumbnail/503422289518819916825328410311436114329600n-1551159734309126081543_medium_1569838511.jpg" rounded />
+						    </Col>
+						    <Col className="text-center" xs={6} md={3}>
 						      <Image src="/storage/profile_images/thumbnail/503422289518819916825328410311436114329600n-1551159734309126081543_medium_1569838511.jpg" rounded />
 						    </Col>
 						  </Row>
