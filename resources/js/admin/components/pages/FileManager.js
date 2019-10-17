@@ -83,47 +83,53 @@ class FileManager extends Component {
 							<button type="submit">Upload</button>
 						</form>
 						<Container>
-						  <Row className="mb-md-3">
+						  <Row className="mb-md-3 no-gutters">
 						    <Col className="text-center" xs={6} md={3}>
-						      <Image src="/storage/profile_images/thumbnail/503422289518819916825328410311436114329600n-1551159734309126081543_medium_1569838511.jpg" rounded />
+						      <Image style={{ 'maxWidth':'100%' }} src="/storage/profile_images/thumbnail/503422289518819916825328410311436114329600n-1551159734309126081543_medium_1569838511.jpg" rounded />
 						    </Col>
 						    <Col className="text-center" xs={6} md={3}>
-						      <Image src="/storage/profile_images/thumbnail/503422289518819916825328410311436114329600n-1551159734309126081543_medium_1569838511.jpg" rounded />
+						      <Image style={{ 'maxWidth':'100%' }} src="/storage/profile_images/thumbnail/luu-diec-phi-than-dieu-dai-hiep-2-696x385_medium_1569838604.jpg" rounded />
 						    </Col>
 						    <Col className="text-center" xs={6} md={3}>
-						      <Image src="/storage/profile_images/thumbnail/503422289518819916825328410311436114329600n-1551159734309126081543_medium_1569838511.jpg" rounded />
+						      <Image style={{ 'maxWidth':'100%' }} src="/storage/profile_images/thumbnail/503422289518819916825328410311436114329600n-1551159734309126081543_medium_1569838511.jpg" rounded />
 						    </Col>
 						    <Col className="text-center" xs={6} md={3}>
-						      <Image src="/storage/profile_images/thumbnail/503422289518819916825328410311436114329600n-1551159734309126081543_medium_1569838511.jpg" rounded />
-						    </Col>
-						  </Row>
-						  <Row className="mb-md-3">
-						    <Col className="text-center" xs={6} md={3}>
-						      <Image src="/storage/profile_images/thumbnail/503422289518819916825328410311436114329600n-1551159734309126081543_medium_1569838511.jpg" rounded />
-						    </Col>
-						    <Col className="text-center" xs={6} md={3}>
-						      <Image src="/storage/profile_images/thumbnail/503422289518819916825328410311436114329600n-1551159734309126081543_medium_1569838511.jpg" rounded />
-						    </Col>
-						    <Col className="text-center" xs={6} md={3}>
-						      <Image src="/storage/profile_images/thumbnail/503422289518819916825328410311436114329600n-1551159734309126081543_medium_1569838511.jpg" rounded />
-						    </Col>
-						    <Col className="text-center" xs={6} md={3}>
-						      <Image src="/storage/profile_images/thumbnail/503422289518819916825328410311436114329600n-1551159734309126081543_medium_1569838511.jpg" rounded />
+						      <Image style={{ 'maxWidth':'100%' }} src="/storage/profile_images/thumbnail/luu-diec-phi-than-dieu-dai-hiep-2-696x385_medium_1569838604.jpg" rounded />
 						    </Col>
 						  </Row>
-						  <Row className="mb-md-3">
+						  <Row className="mb-md-3 no-gutters">
 						    <Col className="text-center" xs={6} md={3}>
-						      <Image src="/storage/profile_images/thumbnail/503422289518819916825328410311436114329600n-1551159734309126081543_medium_1569838511.jpg" rounded />
+						      <Image style={{ 'maxWidth':'100%' }} src="/storage/profile_images/thumbnail/503422289518819916825328410311436114329600n-1551159734309126081543_medium_1569838511.jpg" rounded />
 						    </Col>
 						    <Col className="text-center" xs={6} md={3}>
-						      <Image src="/storage/profile_images/thumbnail/503422289518819916825328410311436114329600n-1551159734309126081543_medium_1569838511.jpg" rounded />
+						      <Image style={{ 'maxWidth':'100%' }} src="/storage/profile_images/thumbnail/luu-diec-phi-than-dieu-dai-hiep-2-696x385_medium_1569838604.jpg" rounded />
 						    </Col>
 						    <Col className="text-center" xs={6} md={3}>
-						      <Image src="/storage/profile_images/thumbnail/503422289518819916825328410311436114329600n-1551159734309126081543_medium_1569838511.jpg" rounded />
+						      <Image style={{ 'maxWidth':'100%' }} src="/storage/profile_images/thumbnail/503422289518819916825328410311436114329600n-1551159734309126081543_medium_1569838511.jpg" rounded />
 						    </Col>
 						    <Col className="text-center" xs={6} md={3}>
-						      <Image src="/storage/profile_images/thumbnail/503422289518819916825328410311436114329600n-1551159734309126081543_medium_1569838511.jpg" rounded />
+						      <Image style={{ 'maxWidth':'100%' }} src="/storage/profile_images/thumbnail/luu-diec-phi-than-dieu-dai-hiep-2-696x385_medium_1569838604.jpg" rounded />
 						    </Col>
+						  </Row>
+						  <Row className="mb-md-3 no-gutters">
+						    <Col className="text-center" xs={6} md={3}>
+						      <Image style={{ 'maxWidth':'100%' }} src="/storage/profile_images/thumbnail/503422289518819916825328410311436114329600n-1551159734309126081543_medium_1569838511.jpg" rounded />
+						    </Col>
+						    <Col className="text-center" xs={6} md={3}>
+						      <Image style={{ 'maxWidth':'100%' }} src="/storage/profile_images/thumbnail/luu-diec-phi-than-dieu-dai-hiep-2-696x385_medium_1569838604.jpg" rounded />
+						    </Col>
+						    <Col className="text-center" xs={6} md={3}>
+						      <Image style={{ 'maxWidth':'100%' }} src="/storage/profile_images/thumbnail/503422289518819916825328410311436114329600n-1551159734309126081543_medium_1569838511.jpg" rounded />
+						    </Col>
+						    <Col className="text-center" xs={6} md={3}>
+						      <Image style={{ 'maxWidth':'100%' }} src="/storage/profile_images/thumbnail/luu-diec-phi-than-dieu-dai-hiep-2-696x385_medium_1569838604.jpg" rounded />
+						    </Col>
+						  </Row>
+						  <Row className="no-gutters">
+						  		<Col style={{ 'border':'1px solid' }}>1</Col>
+						  		<Col style={{ 'border':'1px solid' }}>2fasfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffdnasfafjajflkjafjakfjanfjansfjabjfasfjashfbjahfbjashfb</Col>
+						  		<Col style={{ 'border':'1px solid' }}>3</Col>
+						  		<Col style={{ 'border':'1px solid' }}>4</Col>
 						  </Row>
 						</Container>
 					</div>

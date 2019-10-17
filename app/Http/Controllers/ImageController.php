@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Image;
+use App\Attactment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -39,55 +40,47 @@ class ImageController extends Controller
 	public function fileupload(Request $request)
 	{
 		if($request->hasFile('file')) {
-	        //get filename with extension
-	        $filenamewithextension = $request->file('file')->getClientOriginalName();
-	  
-	        //get filename without extension
-	        $filename = pathinfo($filenamewithextension, PATHINFO_FILENAME);
-	  
-	        //get file extension
-	        $extension = $request->file('file')->getClientOriginalExtension();
-	  
-	        //filename to store
-	        $filenametostore = $filename.'_'.time().'.'.$extension;
-	 
-	        //small thumbnail name
-	        $smallthumbnail = $filename.'_small_'.time().'.'.$extension;
-	 
-	        //medium thumbnail name
-	        $mediumthumbnail = $filename.'_medium_'.time().'.'.$extension;
-	 
-	        //large thumbnail name
-	        $largethumbnail = $filename.'_large_'.time().'.'.$extension;
-	 
-	        //Upload File
-	        $request->file('file')->storeAs('public/profile_images', $filenametostore);
-	        $path = $request->file('file')->storeAs('public/profile_images/thumbnail', $smallthumbnail);
-	        $request->file('file')->storeAs('public/profile_images/thumbnail', $mediumthumbnail);
-	        $request->file('file')->storeAs('public/profile_images/thumbnail', $largethumbnail);
-	  
-	        //create small thumbnail
-	        $smallthumbnailpath = public_path('storage/profile_images/thumbnail/'.$smallthumbnail);
-	        $this->createThumbnail($smallthumbnailpath, 150, 93);
-	 
-	        //create medium thumbnail
-	        $mediumthumbnailpath = public_path('storage/profile_images/thumbnail/'.$mediumthumbnail);
-	        $this->createThumbnail($mediumthumbnailpath, 300, 185);
-	 
-	        //create large thumbnail
-	        $largethumbnailpath = public_path('storage/profile_images/thumbnail/'.$largethumbnail);
-	        $this->createThumbnail($largethumbnailpath, 550, 340);
-	  
-	        return response()->json(['smallthumbnailpath'=>Storage::url($path),'status' => 200], 200);
+	        $filenamewithextension 	= $request->file('file')->getClientOriginalName();
+	        $filename 				= pathinfo($filenamewithextension, PATHINFO_FILENAME);
+	        $extension 				= $request->file('file')->getClientOriginalExtension();
+	        $filenametostore 		= $filename.'_'.time().'.'.$extension;
+	        $filepath 				= 'storage/attactments/';
+	        $smallthumbnailpath 	= public_path('storage/attactments/thumbnail/small/'.$filenametostore);
+	        $mediumthumbnailpath 	= public_path('storage/attactments/thumbnail/medium/'.$filenametostore);
+	        $largethumbnailpath 	= public_path('storage/attactments/thumbnail/large/'.$filenametostore);
+	        $request->file('file')->storeAs('public/attactments', $filenametostore);
+	        $request->file('file')->storeAs('public/attactments/thumbnail/small/', $filenametostore);
+	        $request->file('file')->storeAs('public/attactments/thumbnail/medium/', $filenametostore);
+	        $request->file('file')->storeAs('public/attactments/thumbnail/large/', $filenametostore);
+	        $this->createThumbnail([
+	        	[
+	        		'path' 		=> $largethumbnailpath,
+	        		'width' 	=> 550,
+	        		'height' 	=> 340,
+	        	],
+	        	[
+	        		'path' 		=> $mediumthumbnailpath,
+	        		'width' 	=> 300,
+	        		'height' 	=> 185,
+	        	],
+	        	[
+	        		'path' 		=> $smallthumbnailpath,
+	        		'width' 	=> 150,
+	        		'height' 	=> 93,
+	        	],
+	        ]);
+	        return response()->json(['message'=>'Upload success!','status' => 200], 200);
 	    }
 	}
 
-	public function createThumbnail($path, $width, $height)
+	public function createThumbnail(array $thumbnails = [])
 	{
-	    $img = Image::make($path)->resize($width, $height, function ($constraint) {
-	        $constraint->aspectRatio();
-	    });
-	    $img->save($path);
+		foreach ($thumbnails as $key => $thumbnail) {
+			$img = Image::make($thumbnail['path'])->resize($thumbnail['width'], $thumbnail['height'], function ($constraint) {
+		        $constraint->aspectRatio();
+		    });
+		    $img->save($thumbnail['path']);
+		}
 	}
 
     public function upload(Request $request)

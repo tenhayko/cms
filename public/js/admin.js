@@ -87531,12 +87531,15 @@ function (_Component) {
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         type: "submit"
       }, "Upload")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_5__["Container"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_5__["Row"], {
-        className: "mb-md-3"
+        className: "mb-md-3 no-gutters"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_5__["Col"], {
         className: "text-center",
         xs: 6,
         md: 3
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Image__WEBPACK_IMPORTED_MODULE_4___default.a, {
+        style: {
+          'maxWidth': '100%'
+        },
         src: "/storage/profile_images/thumbnail/503422289518819916825328410311436114329600n-1551159734309126081543_medium_1569838511.jpg",
         rounded: true
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_5__["Col"], {
@@ -87544,6 +87547,19 @@ function (_Component) {
         xs: 6,
         md: 3
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Image__WEBPACK_IMPORTED_MODULE_4___default.a, {
+        style: {
+          'maxWidth': '100%'
+        },
+        src: "/storage/profile_images/thumbnail/luu-diec-phi-than-dieu-dai-hiep-2-696x385_medium_1569838604.jpg",
+        rounded: true
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_5__["Col"], {
+        className: "text-center",
+        xs: 6,
+        md: 3
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Image__WEBPACK_IMPORTED_MODULE_4___default.a, {
+        style: {
+          'maxWidth': '100%'
+        },
         src: "/storage/profile_images/thumbnail/503422289518819916825328410311436114329600n-1551159734309126081543_medium_1569838511.jpg",
         rounded: true
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_5__["Col"], {
@@ -87551,22 +87567,21 @@ function (_Component) {
         xs: 6,
         md: 3
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Image__WEBPACK_IMPORTED_MODULE_4___default.a, {
-        src: "/storage/profile_images/thumbnail/503422289518819916825328410311436114329600n-1551159734309126081543_medium_1569838511.jpg",
-        rounded: true
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_5__["Col"], {
-        className: "text-center",
-        xs: 6,
-        md: 3
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Image__WEBPACK_IMPORTED_MODULE_4___default.a, {
-        src: "/storage/profile_images/thumbnail/503422289518819916825328410311436114329600n-1551159734309126081543_medium_1569838511.jpg",
+        style: {
+          'maxWidth': '100%'
+        },
+        src: "/storage/profile_images/thumbnail/luu-diec-phi-than-dieu-dai-hiep-2-696x385_medium_1569838604.jpg",
         rounded: true
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_5__["Row"], {
-        className: "mb-md-3"
+        className: "mb-md-3 no-gutters"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_5__["Col"], {
         className: "text-center",
         xs: 6,
         md: 3
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Image__WEBPACK_IMPORTED_MODULE_4___default.a, {
+        style: {
+          'maxWidth': '100%'
+        },
         src: "/storage/profile_images/thumbnail/503422289518819916825328410311436114329600n-1551159734309126081543_medium_1569838511.jpg",
         rounded: true
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_5__["Col"], {
@@ -87574,6 +87589,19 @@ function (_Component) {
         xs: 6,
         md: 3
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Image__WEBPACK_IMPORTED_MODULE_4___default.a, {
+        style: {
+          'maxWidth': '100%'
+        },
+        src: "/storage/profile_images/thumbnail/luu-diec-phi-than-dieu-dai-hiep-2-696x385_medium_1569838604.jpg",
+        rounded: true
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_5__["Col"], {
+        className: "text-center",
+        xs: 6,
+        md: 3
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Image__WEBPACK_IMPORTED_MODULE_4___default.a, {
+        style: {
+          'maxWidth': '100%'
+        },
         src: "/storage/profile_images/thumbnail/503422289518819916825328410311436114329600n-1551159734309126081543_medium_1569838511.jpg",
         rounded: true
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_5__["Col"], {
@@ -87581,22 +87609,21 @@ function (_Component) {
         xs: 6,
         md: 3
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Image__WEBPACK_IMPORTED_MODULE_4___default.a, {
-        src: "/storage/profile_images/thumbnail/503422289518819916825328410311436114329600n-1551159734309126081543_medium_1569838511.jpg",
-        rounded: true
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_5__["Col"], {
-        className: "text-center",
-        xs: 6,
-        md: 3
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Image__WEBPACK_IMPORTED_MODULE_4___default.a, {
-        src: "/storage/profile_images/thumbnail/503422289518819916825328410311436114329600n-1551159734309126081543_medium_1569838511.jpg",
+        style: {
+          'maxWidth': '100%'
+        },
+        src: "/storage/profile_images/thumbnail/luu-diec-phi-than-dieu-dai-hiep-2-696x385_medium_1569838604.jpg",
         rounded: true
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_5__["Row"], {
-        className: "mb-md-3"
+        className: "mb-md-3 no-gutters"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_5__["Col"], {
         className: "text-center",
         xs: 6,
         md: 3
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Image__WEBPACK_IMPORTED_MODULE_4___default.a, {
+        style: {
+          'maxWidth': '100%'
+        },
         src: "/storage/profile_images/thumbnail/503422289518819916825328410311436114329600n-1551159734309126081543_medium_1569838511.jpg",
         rounded: true
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_5__["Col"], {
@@ -87604,6 +87631,19 @@ function (_Component) {
         xs: 6,
         md: 3
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Image__WEBPACK_IMPORTED_MODULE_4___default.a, {
+        style: {
+          'maxWidth': '100%'
+        },
+        src: "/storage/profile_images/thumbnail/luu-diec-phi-than-dieu-dai-hiep-2-696x385_medium_1569838604.jpg",
+        rounded: true
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_5__["Col"], {
+        className: "text-center",
+        xs: 6,
+        md: 3
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Image__WEBPACK_IMPORTED_MODULE_4___default.a, {
+        style: {
+          'maxWidth': '100%'
+        },
         src: "/storage/profile_images/thumbnail/503422289518819916825328410311436114329600n-1551159734309126081543_medium_1569838511.jpg",
         rounded: true
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_5__["Col"], {
@@ -87611,16 +87651,30 @@ function (_Component) {
         xs: 6,
         md: 3
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Image__WEBPACK_IMPORTED_MODULE_4___default.a, {
-        src: "/storage/profile_images/thumbnail/503422289518819916825328410311436114329600n-1551159734309126081543_medium_1569838511.jpg",
+        style: {
+          'maxWidth': '100%'
+        },
+        src: "/storage/profile_images/thumbnail/luu-diec-phi-than-dieu-dai-hiep-2-696x385_medium_1569838604.jpg",
         rounded: true
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_5__["Col"], {
-        className: "text-center",
-        xs: 6,
-        md: 3
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Image__WEBPACK_IMPORTED_MODULE_4___default.a, {
-        src: "/storage/profile_images/thumbnail/503422289518819916825328410311436114329600n-1551159734309126081543_medium_1569838511.jpg",
-        rounded: true
-      })))));
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_5__["Row"], {
+        className: "no-gutters"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_5__["Col"], {
+        style: {
+          'border': '1px solid'
+        }
+      }, "1"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_5__["Col"], {
+        style: {
+          'border': '1px solid'
+        }
+      }, "2fasfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffdnasfafjajflkjafjakfjanfjansfjabjfasfjashfbjahfbjashfb"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_5__["Col"], {
+        style: {
+          'border': '1px solid'
+        }
+      }, "3"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_5__["Col"], {
+        style: {
+          'border': '1px solid'
+        }
+      }, "4"))));
     }
   }]);
 
